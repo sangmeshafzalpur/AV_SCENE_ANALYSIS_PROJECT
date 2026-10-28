@@ -1,0 +1,54 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/venv/
+venv/
+ENV/
+env/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node & Frontend Build
+frontend/node_modules/
+frontend/dist/
+frontend/.oxlint-cache
+.npm/
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.swo
+
+# Environment Secrets & Local Databases
+.env
+backend/.env
+frontend/.env.local
+*.log
+PyWhatKit_DB.txt
+
+# Keep storage directory structure but ignore large uploaded test videos and reports
+backend/storage/uploads/*
+!backend/storage/uploads/.gitkeep
+backend/storage/temp/*
+!backend/storage/temp/.gitkeep
+backend/storage/artifacts/*
+!backend/storage/artifacts/.gitkeep
+backend/storage/reports/*
+!backend/storage/reports/.gitkeep
+
+# Ensure trained Keras model is ALWAYS tracked and included in git
+!backend/best_multimodal_model.keras
+
+# Local database
+backend/av_scene_data.db
+
+# Archives and extracted backup cache
+*.zip
+*.tar.gz
+backup_extracted/

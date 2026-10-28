@@ -1,0 +1,25 @@
+# Render Blueprint Specification for One-Click Infrastructure
+services:
+  - type: web
+    name: av-scene-analysis-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: "chmod +x render-build.sh && ./render-build.sh"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: TF_CPP_MIN_LOG_LEVEL
+        value: "3"
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: WHATSAPP_TEST_MODE
+        value: "true"
+      - key: WHATSAPP_TEST_NUMBER
+        value: "+916360553165"
+      - key: STORAGE_RETENTION_DAYS
+        value: "30"
+      - key: MAX_STORAGE_MB
+        value: "5000"
+    healthCheckPath: /api/health
+    autoDeploy: true
